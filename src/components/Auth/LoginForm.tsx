@@ -43,7 +43,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onForgotPassword, isLoad
           <div className="text-center mb-8">
             <div className="bg-white p-2 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-blue-100">
               <img 
-                src="./logo cftv.jpg" 
+                src="./logo-cftv.jpg" 
                 alt="CFTV Logo" 
                 className="w-16 h-16 object-contain"
               />
@@ -111,7 +111,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onForgotPassword, isLoad
         <div className="text-center mb-8">
           <div className="bg-white p-2 rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center shadow-lg border-2 border-blue-100">
             <img 
-              src="./logo cftv.jpg" 
+              src="./logo-cftv.jpg" 
               alt="CFTV Logo" 
               className="w-16 h-16 object-contain"
             />
