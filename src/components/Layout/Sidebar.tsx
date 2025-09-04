@@ -36,7 +36,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, onPageChange, onLogout, 
         <div className="flex flex-col items-center space-y-3">
           <div className="bg-white p-2 rounded-lg shadow-md">
             <img 
-              src="/logo cftv.jpg" 
+              src="./logo cftv.jpg" 
               alt="CFTV Logo" 
               className="w-14 h-14 object-contain"
             />
