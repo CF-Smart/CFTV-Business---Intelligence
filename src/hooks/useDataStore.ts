@@ -284,8 +284,6 @@ export const useDataStore = () => {
 
   const getAvailableClients = async () => {
     try {
-      console.log('=== GET AVAILABLE CLIENTS DEBUG ===');
-      
       // Buscar dados do Supabase
       const [contractsResult, servicesResult, salesResult] = await Promise.all([
         supabase.from('contracts').select('cliente'),
@@ -296,10 +294,6 @@ export const useDataStore = () => {
       const contracts = contractsResult.data || [];
       const services = servicesResult.data || [];
       const sales = salesResult.data || [];
-
-      console.log('Contracts:', contracts.length);
-      console.log('Services:', services.length);
-      console.log('Sales:', sales.length);
 
       const clients = new Set<string>();
       
@@ -318,7 +312,6 @@ export const useDataStore = () => {
       });
 
       const sortedClients = Array.from(clients).sort();
-      console.log('Unique clients found:', sortedClients);
       
       const clientOptions = [
         { value: 'all', label: 'Todos os Clientes' },
@@ -328,8 +321,6 @@ export const useDataStore = () => {
         }))
       ];
 
-      console.log('Client options:', clientOptions);
-      console.log('================================');
       return clientOptions;
     } catch (error) {
       console.error('Erro ao buscar clientes do Supabase:', error);
@@ -635,22 +626,11 @@ export const useDataStore = () => {
       };
 
       const filterByClient = (items: any[]) => {
-        console.log('=== FILTER BY CLIENT DEBUG ===');
-        console.log('Selected client:', selectedClient);
-        console.log('Items before filter:', items.length);
-        console.log('Sample items:', items.slice(0, 3).map(item => ({ cliente: item.cliente })));
-        
         if (selectedClient === 'all') {
-          console.log('Returning all items (selectedClient is "all")');
           return items;
         }
         
-        const filtered = items.filter(item => item.cliente && item.cliente.trim() === selectedClient);
-        console.log('Items after filter:', filtered.length);
-        console.log('Filtered items:', filtered.map(item => ({ cliente: item.cliente })));
-        console.log('================================');
-        
-        return filtered;
+        return items.filter(item => item.cliente && item.cliente.trim() === selectedClient);
       };
 
       const applyFilters = (items: any[], startDate?: string, endDate?: string) => {

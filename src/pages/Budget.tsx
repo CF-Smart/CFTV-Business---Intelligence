@@ -44,29 +44,17 @@ const Budget: React.FC<BudgetProps> = (props) => {
     loadBudgetData();
   }, [props.selectedPeriod]);
   
-  // Debug temporário
-  console.log('=== BUDGET DEBUG ===');
-  console.log('User:', user);
-  console.log('User email:', user?.email);
-  console.log('Expected email:', 'cfsmart@cfcontabilidade.com');
-  console.log('Emails match:', user?.email === 'cfsmart@cfcontabilidade.com');
-  console.log('========================');
-  
   // Só permite acesso para o admin CF Smart
   if (!user || user.email !== 'cfsmart@cfcontabilidade.com') {
-    console.log('BLOCKING ACCESS - User not admin');
     return (
       <div className="flex flex-col items-center justify-center h-full p-8">
         <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-6 rounded-lg max-w-md text-center">
           <h2 className="text-xl font-bold mb-2">Em desenvolvimento</h2>
           <p>Em desenvolvimento, agradecemos a compreensão :)</p>
-          <p className="text-xs mt-2">Debug: {user?.email || 'No user'}</p>
         </div>
       </div>
     );
   }
-  
-  console.log('ALLOWING ACCESS - User is admin');
 
   // Display current period data
   const currentPeriodLabel = props.selectedPeriod === 'all' ? 'Todos os Períodos' : 

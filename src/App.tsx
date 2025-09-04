@@ -26,11 +26,8 @@ const App: React.FC = () => {
   React.useEffect(() => {
     const loadClients = async () => {
       try {
-        console.log('=== LOADING CLIENTS IN APP ===');
         const clients = await getAvailableClients();
-        console.log('Clients loaded in App:', clients);
         setAvailableClients(clients);
-        console.log('Available clients state updated');
       } catch (error) {
         console.error('Erro ao carregar clientes:', error);
       }
